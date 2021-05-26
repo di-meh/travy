@@ -1,0 +1,1 @@
+const apiKey = process.env.REACT_APP_MAPBOX_API_ACCESS_TOKEN;

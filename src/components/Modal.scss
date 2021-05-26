@@ -1,0 +1,93 @@
+$text-color: white;
+$bg-color: #333333;
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.modal {
+  transition: all 0.5s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  overflow: hidden;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .modal-body {
+    max-width: 480px;
+    width: 100%;
+    background-color: $bg-color;
+    padding: 1rem;
+    border-radius: 3rem;
+    .search-box {
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      user-select: none;
+
+      .modal-search-icon {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+      }
+
+      input {
+        background-color: $bg-color;
+        border: none;
+        color: $text-color;
+        font-family: "Josefin Sans";
+        font-weight: normal;
+        font-size: 16px;
+        flex: 1 0 0%;
+
+        &:focus {
+          outline: none;
+          border: none;
+        }
+      }
+
+      .loader {
+        animation: spin 1s linear infinite;
+        font-size: 1.5rem;
+        justify-self: end;
+        margin-left: 1rem;
+      }
+    }
+    .results {
+      margin-top: 1rem;
+      .result {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        border-radius: 4rem;
+        cursor: pointer;
+
+        &:hover {
+          background-color: lighten($bg-color, 20%);
+        }
+
+        .modal-result-icon {
+          font-size: 1.5rem;
+          margin-right: 1rem;
+        }
+
+        p {
+          margin: 0;
+          font-size: 16px;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}

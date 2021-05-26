@@ -1,0 +1,69 @@
+$text-color: white;
+$bg-color: #333333;
+
+@mixin flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Start-header {
+  display: flex;
+  margin-left: 2rem;
+  position: fixed;
+  h1 {
+    font-size: 48px;
+    user-select: none;
+  }
+}
+
+.Start-main {
+  @include flex-center;
+  height: 100vh;
+  text-align: center;
+
+  h2 {
+    font-size: 48px;
+    font-weight: normal;
+  }
+  p {
+    font-size: 24px;
+    font-weight: lighter;
+  }
+  section {
+    @include flex-center;
+
+    > * {
+      margin: 1rem 0;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.Start-cta {
+  background-color: transparent;
+  border: 5px solid $text-color;
+  color: $text-color;
+
+  user-select: none;
+  font-size: 18px;
+  padding: 1rem 2rem;
+  border-radius: 5rem;
+  width: fit-content;
+  transition: all 250ms ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $text-color;
+    color: $bg-color;
+  }
+}

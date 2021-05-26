@@ -1,0 +1,1 @@
+const apiKey = process.env.REACT_APP_PEXELS_API_KEY;
