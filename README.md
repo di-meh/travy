@@ -1,6 +1,15 @@
-# Getting Started with Create React App
+# Travy : A minimalist weather app in React.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What is this project ?
+
+This project was carried out as part of a React course at the ESGI school in Paris, France.
+It has been scaffolded using Create-React-App.
+
+## APIs Used
+
+- [OpenWeatherMap](https://openweathermap.org)
+- [Mapbox](https://www.mapbox.com)
+- [Pexels](https://www.pexels.com/api/documentation/)
 
 ## Available Scripts
 
