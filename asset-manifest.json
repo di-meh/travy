@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/travy/static/css/main.d43914d8.chunk.css",
+    "main.js": "/travy/static/js/main.c3e6cc85.chunk.js",
+    "main.js.map": "/travy/static/js/main.c3e6cc85.chunk.js.map",
+    "runtime-main.js": "/travy/static/js/runtime-main.48aa3637.js",
+    "runtime-main.js.map": "/travy/static/js/runtime-main.48aa3637.js.map",
+    "static/css/2.cb6126f7.chunk.css": "/travy/static/css/2.cb6126f7.chunk.css",
+    "static/js/2.471c5a08.chunk.js": "/travy/static/js/2.471c5a08.chunk.js",
+    "static/js/2.471c5a08.chunk.js.map": "/travy/static/js/2.471c5a08.chunk.js.map",
+    "static/js/3.9e5b9e8a.chunk.js": "/travy/static/js/3.9e5b9e8a.chunk.js",
+    "static/js/3.9e5b9e8a.chunk.js.map": "/travy/static/js/3.9e5b9e8a.chunk.js.map",
+    "index.html": "/travy/index.html",
+    "static/css/2.cb6126f7.chunk.css.map": "/travy/static/css/2.cb6126f7.chunk.css.map",
+    "static/css/main.d43914d8.chunk.css.map": "/travy/static/css/main.d43914d8.chunk.css.map",
+    "static/js/2.471c5a08.chunk.js.LICENSE.txt": "/travy/static/js/2.471c5a08.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/travy/static/media/la-solid-900.a8130346.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.48aa3637.js",
+    "static/css/2.cb6126f7.chunk.css",
+    "static/js/2.471c5a08.chunk.js",
+    "static/css/main.d43914d8.chunk.css",
+    "static/js/main.c3e6cc85.chunk.js"
+  ]
+}
