@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import "./Modal.scss";
+import "../styles/Modal.scss";
+import fetchCities from "../api/cities";
+import Link from "./Link";
 
 export default function Modal({ shown, close, setLatLon, setCityName }) {
-  const apiKey = process.env.REACT_APP_MAPBOX_API_ACCESS_TOKEN;
-
   // local
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
@@ -13,18 +13,7 @@ export default function Modal({ shown, close, setLatLon, setCityName }) {
     const fetchMapBoxData = async () => {
       if (query && query.length > 0) {
         setLoading(true);
-        const mapboxUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?access_token=${apiKey}&types=locality,place&limit=5&autocomplete=true&language=fr`;
-        const response = await fetch(mapboxUrl);
-        const { features } = await response.json();
-        //     if (!features || features.length < 1) {
-        //       return { error: 500 };
-        //     }
-        const queryResults = features.map((p) => ({
-          id: p.id,
-          name: p.place_name,
-          latitude: p.center[1],
-          longitude: p.center[0],
-        }));
+        const queryResults = await fetchCities(query);
         setResults(queryResults);
         setLoading(false);
       } else {
@@ -32,7 +21,7 @@ export default function Modal({ shown, close, setLatLon, setCityName }) {
       }
     };
     fetchMapBoxData();
-  }, [query, apiKey]);
+  }, [query]);
 
   function closeModal() {
     close();
@@ -68,21 +57,22 @@ export default function Modal({ shown, close, setLatLon, setCityName }) {
             <div className="results">
               {results.map((res) => {
                 return (
-                  <div
-                    className="result"
-                    key={res.id}
-                    onClick={() => {
-                      setLatLon({
-                        latitude: res.latitude,
-                        longitude: res.longitude,
-                      });
-                      setCityName(res.name);
-                      closeModal();
-                    }}
-                  >
-                    <i className="modal-result-icon las la-map-marker"></i>
-                    <p>{res.name}</p>
-                  </div>
+                  <Link href="/weather" className="modalLink" key={res.id}>
+                    <div
+                      className="result"
+                      onClick={() => {
+                        setLatLon({
+                          latitude: res.latitude,
+                          longitude: res.longitude,
+                        });
+                        setCityName(res.name);
+                        closeModal();
+                      }}
+                    >
+                      <i className="modal-result-icon las la-map-marker"></i>
+                      <p>{res.name}</p>
+                    </div>
+                  </Link>
                 );
               })}
             </div>

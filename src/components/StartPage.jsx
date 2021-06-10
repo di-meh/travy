@@ -1,33 +1,13 @@
-import { useEffect } from "react";
 import Modal from "./Modal";
-import "./StartPage.scss";
+import "../styles/StartPage.scss";
 
 export default function StartPage({
   setCityName,
-  latlon,
   setLatLon,
   md,
   showModal,
   hideModal,
 }) {
-  // const [md, setMd] = useState(false);
-  // const [latlon, setLatLon] = useState(null);
-  // const [cityName, setCityName] = useState("");
-
-  const owmApiKey = process.env.REACT_APP_OWM_KEY;
-
-  useEffect(() => {
-    const fetchWeather = async () => {
-      if (latlon !== null && latlon !== undefined) {
-        const owmAPIURL = `https://api.openweathermap.org/data/2.5/weather?appid=${owmApiKey}&lat=${latlon.latitude}&lon=${latlon.longitude}&units=metric&lang=fr`;
-        const response = await fetch(owmAPIURL);
-        const { weather, main, name } = await response.json();
-        console.log(weather, main, name);
-      }
-    };
-    fetchWeather();
-  }, [latlon, owmApiKey]);
-
   return (
     <>
       <header className="Start-header">
