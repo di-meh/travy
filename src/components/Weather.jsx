@@ -20,7 +20,6 @@ export default function Weather({
     return parameter !== null && parameter !== "" ? parameter : "Loading";
   }
   function refresh() {
-    // console.log(latlon);
     setLatLon({
       latitude: latlon.latitude,
       longitude: latlon.longitude,
@@ -45,7 +44,6 @@ export default function Weather({
         <div className="weather-info">
           <h1>{displayOrLoad(weatherObj.temp)}°C</h1>
           <div className="weather-description">
-            {/* <i className="las la-cloud"></i> */}
             <h3>{displayOrLoad(capitalize(weatherObj.desc))}</h3>
           </div>
         </div>

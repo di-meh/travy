@@ -11,26 +11,21 @@ import random from "lodash.random";
 function App() {
   // Modal
   const [md, setMd] = useState(false);
-  // From StartPage to Weather:
   // Name of city + coordinates
   const [cityName, setCityName] = useState("");
   const [latlon, setLatLon] = useState(null);
-  // In Weather:
-  // Pexels from City Name (take 20 random images)
+  // Weather informations
   const [weatherObj, setWeather] = useState({ desc: null, temp: null, w_obj: null, m_obj: null });
+  // Picture
   const [photo, setPhoto] = useState(null);
+  // CSS property for background image
   const [background, setBackground] = useState("none");
-  // const [photos, setPhotos] = useState([]);
-
-  // Weather to Picture:
-  // All informations about picture
 
   function showModal() {
     setMd(true);
   }
   function hideModal() {
     setMd(false);
-    // setLatLon(null);
   }
   const weatherPictureStyle = {
     backgroundImage: background,
@@ -42,23 +37,23 @@ function App() {
 
   useEffect(() => {
     const fetchW = async () => {
-      if (latlon !== null && latlon !== undefined) {
-        const { weather, main } = await fetchWeather(
-          latlon.latitude,
-          latlon.longitude
-        );
-        setWeather({ desc: weather[0].description, temp: main.temp, w_obj: weather, m_obj: main });
-      }
-    };
+      const { weather, main } = await fetchWeather(
+        latlon.latitude,
+        latlon.longitude
+      );
+      setWeather({ desc: weather[0].description, temp: main.temp, w_obj: weather, m_obj: main });
+    }
     const fetchP = async () => {
-      if (latlon !== null && latlon !== undefined) {
-        const photos = await fetchPictures(cityName);
-        // setPhotos(photos);
-        setPhoto(photos[random(photos.length)]);
-      }
-    };
-    fetchW();
-    fetchP();
+      const photos = await fetchPictures(cityName);
+      // setPhotos(photos);
+      setPhoto(photos[random(photos.length)]);
+    }
+    if (latlon !== null && latlon !== undefined) {
+
+      fetchW();
+      fetchP();
+    }
+
   }, [latlon, cityName]);
   return (
     <div className="App">
